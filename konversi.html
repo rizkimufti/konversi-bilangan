@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+
+<title>Konversi Bilangan</title>
+
+
+
+<style>
+body{
+
+background-color: lightblue;
+
+}
+
+footer{
+padding-top : 80px;
+
+}
+
+</style>
+
+<script language="JavaScript">
+
+(function(){
+var ConvertBase = function (num) {
+return {
+from : function (baseFrom) {
+return {
+to : function (baseTo) {
+return parseInt(num, baseFrom).toString(baseTo);
+}};
+}
+};
+};
+
+// binary to decimal
+ConvertBase.bin2dec = function (num)
+ {
+return ConvertBase(num).from(2).to(10);
+};
+
+// binary to hexadecimal
+ConvertBase.bin2hex = function (num)
+{
+return ConvertBase(num).from(2).to(16);
+};
+
+// decimal to binary
+ConvertBase.dec2bin = function (num)
+{
+return ConvertBase(num).from(10).to(2);
+};
+
+
+// decimal to hexadecimal
+ConvertBase.dec2hex = function (num)
+{
+return ConvertBase(num).from(10).to(16);
+};
+
+
+// hexadecimal to binary
+ConvertBase.hex2bin = function (num)
+{
+return ConvertBase(num).from(16).to(2);
+};
+
+// hexadecimal to decimal
+ConvertBase.hex2dec = function (num)
+{
+return ConvertBase(num).from(16).to(10);
+};
+
+//decimal to oktal
+ConvertBase.dec2okt = function (num)
+{
+return ConvertBase(num).from(10).to(8);
+};
+this.ConvertBase = ConvertBase;
+})(this);
+</SCRIPT>
+
+<body>
+<center>
+
+<h1>Konversi Bilangan</h1>
+<script>
+
+var a=prompt("Masukkan nilai decimal "+a);
+
+</script>
+
+
+<table border="1" cellpadding="8" cellspacing="1">
+<script >
+document.write("<tr>");
+document.write("<td> dec");
+document.write("</td>");
+document.write("<td> bin");
+document.write("</td>");
+document.write("<td> hex");document.write("</td>");
+document.write("<td> okt");
+document.write("</td>");
+document.write("</tr>");
+
+for(var i=1;i<=a;i++)
+
+{
+
+    document.write("<tr>");
+    document.write("<td>"+i);
+    document.write("</td>");
+    document.write("<td>"+ConvertBase.dec2bin(i));
+    document.write("</td>");
+    document.write("<td>"+ConvertBase.dec2hex(i));
+    document.write("</td>");
+    document.write("<td>"+ConvertBase.dec2okt(i));
+    document.write("</td>");
+    document.write("</tr>");
+
+}
+</script>
+</table>
+
+
+<footer>
+    <center>
+      <hr>
+        <p><b>A11.2016.09493 | Rizki Mufti Ilmawan</b></p>
+        </footer>
+</body>
+</html>
